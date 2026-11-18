@@ -27,6 +27,16 @@ I used Neon to host my PostgreSQL database and EchoAPI to test my endpoints.
 | GET | `/triviabook/random` | Returns one random trivia question |
 | POST | `/triviabook/answer` | Checks whether a submitted answer is correct |
 
+## Live Application
+
+My Triviabook API is deployed on Render.
+
+Live API:
+https://triviabook-api.onrender.com/triviabook/topics
+
+GitHub Repository:
+https://github.com/mck5ly24/triviabook-api
+
 ### Filtering Questions
 
 The topic endpoint supports optional query parameters:
