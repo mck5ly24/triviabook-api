@@ -94,9 +94,55 @@ async function getQuestionById(id) {
 }
 
 
+
+/**
+ * Adds a new trivia question to the database.
+ * Creates the topic first if it does not exist.
+ * @param {string} topic - The trivia topic.
+ * @param {string} question - The question text.
+ * @param {string} answer - The correct answer.
+ * @param {string} difficulty - easy, medium, or hard.
+ * @returns {Promise<void>} Saves the new question.
+ */
+async function addQuestion(topic, question, answer, difficulty) {
+    let client = await pool.connect();
+
+    try {
+        await client.query('BEGIN');
+
+        // Create the topic if it does not already exist.
+        let topicResult = await client.query(
+            `INSERT INTO topics (name)
+       VALUES ($1)
+       ON CONFLICT (name)
+       DO UPDATE SET name = EXCLUDED.name
+       RETURNING id`,
+            [topic]
+        );
+
+        let topicId = topicResult.rows[0].id;
+
+        // Save the question under the correct topic.
+        await client.query(
+            `INSERT INTO questions (topic_id, question, answer, difficulty)
+       VALUES ($1, $2, $3, $4)`,
+            [topicId, question, answer, difficulty]
+        );
+
+        await client.query('COMMIT');
+    } catch (error) {
+        await client.query('ROLLBACK');
+        throw error;
+    } finally {
+        client.release();
+    }
+}
+
+
 module.exports = {
     getAllTopics,
     getQuestionsByTopic,
     getRandomQuestion,
-    getQuestionById
+    getQuestionById,
+    addQuestion
 };

@@ -177,9 +177,63 @@ async function checkAnswer(req, res) {
 }
 
 
+
+/**
+ * Adds a new trivia question to the database.
+ * @param {Object} req - The incoming request.
+ * @param {Object} res - The server response.
+ * @returns {Promise<void>} Sends the updated questions.
+ */
+async function addQuestion(req, res) {
+    try {
+        let { topic, question, answer, difficulty } = req.body || {};
+
+        // Make sure all required fields are provided.
+        if (
+            typeof topic !== 'string' || !topic.trim() ||
+            typeof question !== 'string' || !question.trim() ||
+            typeof answer !== 'string' || !answer.trim() ||
+            typeof difficulty !== 'string' || !difficulty.trim()
+        ) {
+            return res.status(400).json({
+                error: 'Topic, question, answer, and difficulty are required.'
+            });
+        }
+
+        // Remove extra spaces and standardize the values.
+        topic = topic.trim().toLowerCase();
+        question = question.trim();
+        answer = answer.trim();
+        difficulty = difficulty.trim().toLowerCase();
+
+        // Only allow valid difficulty levels.
+        if (!['easy', 'medium', 'hard'].includes(difficulty)) {
+            return res.status(400).json({
+                error: 'Difficulty must be easy, medium, or hard.'
+            });
+        }
+
+        // Add the question to the database.
+        await triviaModel.addQuestion(topic, question, answer, difficulty);
+
+        // Return the updated questions for this topic.
+        let questions = await triviaModel.getQuestionsByTopic(topic);
+
+        return res.status(201).json(questions);
+    } catch (error) {
+        console.error('Error adding question:', error.message);
+
+        return res.status(500).json({
+            error: 'Could not add trivia question.'
+        });
+    }
+}
+
+
 module.exports = {
     getTopics,
     getTopicQuestions,
     getRandomQuestion,
-    checkAnswer
+    checkAnswer,
+    addQuestion
 };

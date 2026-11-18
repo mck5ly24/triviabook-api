@@ -20,7 +20,11 @@ router.get('/topic/:topic', triviaController.getTopicQuestions);
 // Get one random trivia question.
 router.get('/random', triviaController.getRandomQuestion);
 
- // Check a user's answer to a trivia question.
+// Route for checking a trivia answer.
 router.post('/answer', triviaController.checkAnswer);
+
+// Route for adding a new trivia question.
+router.post('/question/add', triviaController.addQuestion);
+
 
 module.exports = router;
