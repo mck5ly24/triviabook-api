@@ -1,7 +1,7 @@
 # Triviabook API
 
 **Ronald Hester Jr.**  
-CSC 372-01 — Web Development  
+CSC 372-01   
 November 18, 2026
 
 ## About My Project
