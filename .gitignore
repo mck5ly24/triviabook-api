@@ -1,0 +1,9 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables and database credentials
+.env
+.env.*
+
+# Local logs
+*.log
