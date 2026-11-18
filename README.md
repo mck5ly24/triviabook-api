@@ -19,13 +19,13 @@ I used Neon to host my PostgreSQL database and EchoAPI to test my endpoints.
 - EchoAPI — Tests API requests and responses
 
 ## API Endpoints
-
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/triviabook/topics` | Gets all available trivia topics |
-| GET | `/triviabook/topics/:topic` | Gets questions for a specific topic |
+| GET | `/triviabook/topic/:topic` | Gets questions for a specific topic |
 | GET | `/triviabook/random` | Returns one random trivia question |
 | POST | `/triviabook/answer` | Checks whether a submitted answer is correct |
+| POST | `/triviabook/question/add` | Adds a new trivia question |
 
 ## Live Application
 
