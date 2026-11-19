@@ -57,7 +57,7 @@ This table stores the trivia questions, their answers, and difficulty levels. Th
 My Triviabook API is deployed on Render.
 
 Live API:
-https://triviabook-api.onrender.com/triviabook/topics
+Live Application: https://triviabook-api-6ymu.onrender.com/
 
 GitHub Repository:
 https://github.com/mck5ly24/triviabook-api
