@@ -18,6 +18,31 @@ I used Neon to host my PostgreSQL database and EchoAPI to test my endpoints.
 - dotenv — Manages environment variables
 - EchoAPI — Tests API requests and responses
 
+## Database Schema
+
+I used two PostgreSQL tables to organize my trivia data.
+
+### topics
+
+| Column | Data Type |
+|---|---|
+| id | integer |
+| name | character varying |
+
+This table stores the different trivia topics.
+
+### questions
+
+| Column | Data Type |
+|---|---|
+| id | integer |
+| topic_id | integer |
+| question | text |
+| answer | text |
+| difficulty | character varying |
+
+This table stores the trivia questions, their answers, and difficulty levels. The `topic_id` column connects each question to its topic in the `topics` table.
+
 ## API Endpoints
 | Method | Endpoint | Description |
 |---|---|---|

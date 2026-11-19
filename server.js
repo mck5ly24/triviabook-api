@@ -18,14 +18,12 @@ let port = process.env.PORT || 3000;
 // Allow the server to read JSON request bodies.
 app.use(express.json());
 
+// Serve the frontend files.
+app.use(express.static("public"));
+
 // Connect the trivia routes to the server.
 app.use('/triviabook', triviaRoutes);
 
-/**
- * Displays a welcome message on the homepage.
- * @param {Object} req - The incoming request.
- * @param {Object} res - The server response.
- */
 app.get('/', (req, res) => {
   res.send('Welcome to my Triviabook API!');
 });

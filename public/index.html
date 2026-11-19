@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triviabook</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Triviabook</h1>
+        <p>Test your knowledge with some trivia!</p>
+    </header>
+
+    <main>
+        <!-- Display available topics -->
+        <section>
+            <h2>Trivia Topics</h2>
+            <button id="load-topics">View Topics</button>
+            <ul id="topics-list"></ul>
+        </section>
+
+        <!-- Search for questions by topic -->
+        <section>
+            <h2>Find Questions</h2>
+
+            <form id="search-form">
+                <label for="topic">Topic</label>
+                <input id="topic" type="text"
+                       placeholder="Example: science" required>
+
+                <label for="difficulty">Difficulty</label>
+                <select id="difficulty">
+                    <option value="">All</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+
+                <label for="limit">Question Limit</label>
+                <input id="limit" type="number" min="1"
+                       placeholder="Optional">
+
+                <button type="submit">Search Questions</button>
+            </form>
+
+            <div id="questions-list"></div>
+        </section>
+
+        <!-- Get a random question and check an answer -->
+        <section>
+            <h2>Random Trivia Question</h2>
+            <button id="random-btn">Get Random Question</button>
+            <div id="random-question"></div>
+
+            <form id="answer-form">
+                <label for="guess">Your Answer</label>
+                <input id="guess" type="text" required>
+                <button type="submit">Check Answer</button>
+            </form>
+
+            <p id="answer-result" aria-live="polite"></p>
+        </section>
+
+        <!-- Add a new question to the database -->
+        <section>
+            <h2>Add a Trivia Question</h2>
+
+            <form id="add-form">
+                <label for="new-topic">Topic</label>
+                <input id="new-topic" type="text" required>
+
+                <label for="new-question">Question</label>
+                <input id="new-question" type="text" required>
+
+                <label for="new-answer">Answer</label>
+                <input id="new-answer" type="text" required>
+
+                <label for="new-difficulty">Difficulty</label>
+                <select id="new-difficulty" required>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+
+                <button type="submit">Add Question</button>
+            </form>
+
+            <p id="add-result" aria-live="polite"></p>
+        </section>
+    </main>
+</body>
+</html>

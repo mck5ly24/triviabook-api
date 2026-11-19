@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f172a;
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* Page heading */
+header {
+    background-color: #1e293b;
+    text-align: center;
+    padding: 35px 20px;
+    border-bottom: 3px solid #3b82f6;
+}
+
+header h1 {
+    margin: 0;
+    color: #60a5fa;
+    font-size: 36px;
+}
+
+header p {
+    color: #cbd5e1;
+    margin-bottom: 0;
+}
+
+/* Main page layout */
+main {
+    max-width: 950px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+/* Each trivia section */
+section {
+    background-color: #1e293b;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+h2 {
+    color: #93c5fd;
+    margin-top: 0;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    background-color: #0f172a;
+    color: white;
+    font-size: 15px;
+}
+
+/* Buttons */
+button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Displayed questions and results */
+#questions-list,
+#random-question,
+#answer-result,
+#add-result {
+    margin-top: 18px;
+}
+
+#questions-list>*,
+#random-question:not(:empty) {
+    background-color: #0f172a;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+#topics-list {
+    padding-left: 22px;
+}
+
+#topics-list li {
+    padding: 5px 0;
+}
+
+/* Mobile-friendly layout */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    main {
+        margin-top: 20px;
+        padding: 0 12px;
+    }
+
+    section {
+        padding: 18px;
+    }
+}
